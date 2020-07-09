@@ -6,14 +6,15 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello Word")
-	inferenciaDeTipo()
+	evenOrOdd()
+	//fmt.Println("Hello Word")
+	//inferenciaDeTipo()
 
-	fmt.Println("Informe um número para o cálculo do fatorial")
-	var numero int
-	fmt.Scanf("%d", &numero)
+	//fmt.Println("Informe um número para o cálculo do fatorial")
+	//var numero int
+	//fmt.Scanf("%d", &numero)
 
-	fmt.Println(fatorial(numero))
+	//fmt.Println(fatorial(numero))
 }
 
 func inferenciaDeTipo() {
@@ -24,9 +25,20 @@ func inferenciaDeTipo() {
 }
 
 func fatorial(numero int) int {
-	if (numero > 0) {
-		resultado := numero * fatorial(numero -1)
+	if numero > 0 {
+		resultado := numero * fatorial(numero-1)
 		return resultado
 	}
 	return 1
+}
+
+func evenOrOdd() {
+	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	for _, n := range numbers {
+		if n%2 == 0 {
+			fmt.Println(n, " is even")
+		} else {
+			fmt.Println(n, " is odd")
+		}
+	}
 }
