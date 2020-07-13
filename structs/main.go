@@ -42,24 +42,10 @@ func main() {
 
 	ricardo.print()
 
-	ricardoPonteiro := &ricardo
-	ricardoPonteiro.atualizaNome("Ludwig")
-
-	ricardo.print()
 }
 
 //Receiver Functions
 
 func (p pessoa) print() {
 	fmt.Printf("%+v", p)
-}
-
-//Passagem por valor (faz uma cópia da Struct em outro endereço de memória)
-//Dessas forma não funciona, não vai atualizar
-func (p pessoa) updateName(newFirstName string) {
-	p.nome = newFirstName
-}
-
-func (ponteiroParaPessoa *pessoa) atualizaNome(novoPrimeiroNome string) {
-	(*ponteiroParaPessoa).nome = novoPrimeiroNome
 }

@@ -36,9 +36,9 @@ func evenOrOdd() {
 	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 	for _, n := range numbers {
 		if n%2 == 0 {
-			fmt.Println(n, " is even")
+			fmt.Println(n, " é par")
 		} else {
-			fmt.Println(n, " is odd")
+			fmt.Println(n, " é impar")
 		}
 	}
 }
