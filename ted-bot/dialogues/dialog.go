@@ -1,16 +1,27 @@
 package dialogues
 
+//Dialog is ...
 type Dialog struct {
-	language  string
-	questions []question
+	questions []string
+	anwsers   []string
 }
 
-type question struct {
-	strQuestion string
-	answers     []string
+func (d *Dialog) Builder(lines []string) Dialog {
+	if len(d.questions) == 0 {
+		return splitQuestionAndAnswers(lines)
+	}
+	return Dialog{}
 }
 
-func splitQuestionAndAnswers(lines []string) ([]string, []string) {
+//Question is ...
+func (d *Dialog) Question(index int) (string, int) {
+	if len(d.questions) < index {
+		return "Question not found", -1
+	}
+	return d.questions[index], index
+}
+
+func splitQuestionAndAnswers(lines []string) Dialog {
 	var strQuestions []string
 	var strAnswers []string
 	for i, line := range lines {
@@ -20,5 +31,5 @@ func splitQuestionAndAnswers(lines []string) ([]string, []string) {
 			strAnswers = append(strAnswers, line)
 		}
 	}
-	return strQuestions, strAnswers
+	return Dialog{questions: strQuestions, anwsers: strAnswers}
 }

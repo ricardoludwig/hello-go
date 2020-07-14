@@ -1,12 +1,12 @@
 Oi
 Ola
-Quanto é 2+2
+Quanto é 2+2?
 4
-Quanto é a raiz quadrada de 4
+Quanto é a raiz quadrada de 4?
 2
-Quando é 3x3
+Quanto é 3x3?
 9
-Quanto é raiz quadrade de 2
+Quanto é raiz quadrada de 2?
 Nop
 
 
