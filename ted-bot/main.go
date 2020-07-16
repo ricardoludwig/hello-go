@@ -14,18 +14,18 @@ import (
 func main() {
 
 	lines := ios.LoaderFile(ios.StringFileName, ios.StringPath)
-	fmt.Println(lines)
-
 	dialog := new(dialogues.Dialog).Builder(lines)
-	fmt.Println(dialog)
 
-	for {
+	scanner := bufio.NewScanner(os.Stdin)
 
-		scanner := bufio.NewScanner(os.Stdin)
+	for i := 0; i < dialog.AmountOfQuestions(); i++ {
+
+		question, index := dialog.Question(i)
+		fmt.Println(question)
+
 		scanner.Scan()
-		origTexto := scanner.Text()
-
-		fmt.Println(origTexto)
+		userAnswer := scanner.Text()
+		fmt.Println(dialog.IsValidAnswer(userAnswer, index))
 
 	}
 }
