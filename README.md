@@ -38,6 +38,74 @@ Ex. func A(x int) (y int) { ... }
 
 - por convenção não precisamos informar o nome dos atributos do Struct na declaração, mas a ordem deve seguir a ordem que os atributos
 foram declarados para o compilador possa inferir corretamente as atribuições
+- é possível atrelar funcões à uma Struct, exemplo:
+
+	type Endereco struct {
+		logradouro string
+		numero int
+	}
+
+	func (e *Endereco) setLogradouro (log string) {
+		e.logradouro = log
+	}
+- em Structs podemos utilizar tag para identificação de seus atributos, um exemplo e transfomação em um JSON.
+
+	type Endereco struct {
+		logradouro `json:"rua"
+	}
+
+## Ponteiros
+
+- por padrão a passagem de parâmetros em Go é por cópia
+- a utilização dos ponteiro é útil quando desejamos passar uma variável por referência para uma função
+
+
+## Condicionais
+
+### if
+
+- no exemplo abaixo é demosntrado uma forma otimizada do if
+
+	//variaveis x, status fazem parte apenas do escopo do if
+	if x, status := fnRetornaUmBoleano(z); satus {
+			fmt.Println("Status true")
+			return
+	}
+
+
+## Loop
+
+### Switch
+- Go ao contrário de outras linguagens não passa por todas as condições do switch, para esse comportamento é utilizado a palavra chave
+fallthrough
+
+## Map
+
+- Coleção de dados com uma chave, o algorítimo do Maps em Go é muito eficiente
+- map se não inicializado fica nulo
+- não é recomendado utilizar um struct como chave, isso degrada o desempenho, é recomendado a utilização de string ou int
+
+## Tratamento de erro
+
+- erro é um ponteiro de um objeto que implementa a interface Error
+- é recomendado criar tipos de erros personalizados
+- é possível avaliar o tipo de erro que está sendo retornado
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
