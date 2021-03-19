@@ -90,7 +90,92 @@ fallthrough
 - erro é um ponteiro de um objeto que implementa a interface Error
 - é recomendado criar tipos de erros personalizados
 - é possível avaliar o tipo de erro que está sendo retornado
--
+
+## Go Build
+
+- gerar o executável
+- gerar o executável para uma plataforma específica (cross compilation)
+	GOOS=windows GOARCH=386 go build -o hello.exe
+
+## Arrays
+
+	var frutas [3] string
+	frutas[0] = laranja
+	frutas[2] = banana
+	frutas[3] = maçã
+
+	len(frutas)
+
+	for index, fruta := range frutas {
+		fmt.Printf("Fruta[%d] é %s/n/r", index, fruta)
+	}
+
+## Slices
+
+- pode ser entendido como um array dinâmico, semelhante ao List em Java
+
+	var nums []int
+	fmt.Println(nums, len(mums), cap(nums))
+	//out -> [] 0 0
+
+	//inicializando o slice
+	nums = make([]int, 5)
+	fmt.Println(nums, len(mums), cap(nums))
+	//out -> [0 0 0 0 0] 5 5
+
+	nums = append(nums, 6)
+
+- pegando dados em intervalos do slice (dividindo o slice)
+
+	// Primeiro item começa com o indice 0
+	// Segundo item começa com o indice 1
+	temp1 := nums[2:5]
+
+	//Dividindo a partir do primeiro item (dois primeiros itens)
+	temp2 := nums[:2]
+
+	//Pegando os dois últimos itens
+	temp3 := nums[len(nums) - 2:]
+
+- removendo item do slice
+
+	É preciso obter o indice do item que deseja remover, após isso criar um Slice temporário sem o item que deseja-se remover e por fim
+	copiar o Slice temporário para o Slice original
+
+	indexItemRemover := 2
+	temp := cidades[:indexItemRemover]
+	temp = append(temp, cidades[indexItemRemover+1:]...)
+	copy(cidades, temp)
+
+## Interfaces
+
+- interfaces são um componento no Go que nos ajuda a escrever códigos mais complexos, quando desejamos reaproveitar códigos.
+- no Go a herança não é direta, existe uma herança por semelhança, isso se dá pela implementação das ações que te caracterizam
+como pertencente aquela interface. Se em uma dada Struct implementarmos funções de uma dada interface o compilador irá inferir que estamos
+implementando dada interface, não há a necessidade do uso de palavras chaves como implements, por exemplo.
+- Go não é uma linguagem 100% Orientada à Objetos.
+
+## Comando defer
+
+- pode ser declarado logo depois da abertura de algum recurso (escrita de arquivo, conexão com banco) que após a execução da função o
+comando defer será executado para liberar o recurso. Isso é muito útil para evitar esquecimentos dos programadores em fechar recursos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
