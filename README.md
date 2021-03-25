@@ -2,6 +2,11 @@ Nesse repositório registro anotações, observações e código dos meus estudo
 
 # Anotações
 
+## Overview
+
+- em um primeiro momento é uma linguagem procedural, estruturada, depois novos recursos foram sendo adicionados. Exemplos interfarces,
+  funções anônimas, clousures. É uma linguagem focada na simplicidade;
+
 ## Variáveis
 
 - fortemente tipdas;
@@ -10,8 +15,6 @@ Nesse repositório registro anotações, observações e código dos meus estudo
 - não existe valor nulo para variáveis de tipos primitivos;
 - se a variável não tiver o seu tipo explicitamente declarado o compilador será capaz de inferi-lo baseado no valor atribuído;
 - toda variável declarada deve ser utilizada, caso não seja acarretará em erro de compilação;
-- em um primeiro momento é uma linguagem procedural, estruturada. Depois novos recursos foram sendo adicionados. Exemplos interfarces,
-  funções anônimas, clousures. É uma linguagem focada na simplicidade;
 
 ### Escopo
 
@@ -19,7 +22,7 @@ Nesse repositório registro anotações, observações e código dos meus estudo
   outros pacotes (variável global);
 - escopo de função, acessíveis apenas nas funções que foram declaradas;
 
-[Variáveis](variaveis/variavel.go)
+[Variáveis](variables/variable.go)
 
 ## Pacote
 
@@ -37,7 +40,8 @@ Nesse repositório registro anotações, observações e código dos meus estudo
 
 - por convenção não precisamos informar o nome dos atributos do Struct na declaração, mas a ordem deve seguir a ordem que os atributos
   foram declarados para o compilador possa inferir corretamente as atribuições
-- é possível atrelar funcões à uma Struct, exemplo:
+- é possível atrelar funcões à uma Struct. Essas funções são conhecidas como <b>receiver functions</b> seria algo aproximado ao métodos de
+  classes em Orientação a Objetos.
 
 ```go
 type Endereco struct {
@@ -50,7 +54,10 @@ func (e *Endereco) setLogradouro (log string) {
 }
 ```
 
-- em Structs podemos utilizar tag para identificação de seus atributos, um exemplo e transfomação em um JSON;
+### Tag
+- tags são utilizadas para controlas como a informação é atribuída ao campos da struct;
+- são metadados anexados aos campos da struct  que provêm intruções para outro código Go que irá trabalhar com a struct;
+- podemos utilizar tag para identificação de seus campos na serialização para um JSON;
 
 ```go
 type Endereco struct {
@@ -58,9 +65,11 @@ type Endereco struct {
 }
 ```
 
+[Structs](structs/struct.go)
+
 ## Ponteiros
 
-- por padrão a passagem de parâmetros em Go é por cópia;
+- por padrão a passagem de parâmetros em Go é por cópia, exceto algumas exceções;
 - a utilização dos ponteiro é útil quando desejamos passar uma variável por referência para uma função;
 
 ## Condicionais

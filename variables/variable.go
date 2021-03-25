@@ -4,7 +4,7 @@ import "fmt"
 
 // Declaração de variáveis de escopo de pacote
 var (
-	//Endereco é um valor público
+	//Nome e Sobrenome são públicos
 	Nome         string
 	sobrenome    string
 	idade        int
